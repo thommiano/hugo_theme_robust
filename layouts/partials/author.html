@@ -2,13 +2,12 @@
 <section class="sidebar">
   <header>AUTHOR</header>
   <div class="author">
-    {{ with .thumbnail }}
-    <a href="about">
-    <div class="author-thumb" style="background-image: url({{ . | absURL }});"></div>
+
+    <a href="{{ .about | relURL }}" style="text-decoration: none; color: inherit;">
+    <div class="author-thumb" style="background-image: url({{ .thumbnail | absURL }});"></div>
     </a>
 
-    {{ end }}
-    <a href="about" style="text-decoration: none; color: inherit;">
+    <a href="{{ .about | relURL }}" style="text-decoration: none; color: inherit;">
     <div class="author-name">{{ .name }}</div>
     </a>
     <ul class="author-facts">
