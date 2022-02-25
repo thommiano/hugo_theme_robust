@@ -14,6 +14,7 @@
     {{ if .IsHome }}{{ $pctx = .Site }}{{ end }}
     {{ $paginator := .Paginate $pctx.RegularPages }}
     {{ range $paginator.Pages }}
+    {{ if not .Params.hidden }}
     <div class="mcol c6">
       <article class="li">
         <a href="{{ .Permalink }}">
@@ -23,7 +24,9 @@
             <h2 class="title">{{ .Title }}</h2>
 
             <ul class="facts">
+              {{ if .Params.showDate  }}
               <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="{{ .Date.Format "2006-01-02T15:04:05JST" }}">{{ .Date.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>
+              {{ end }}
               {{ with .Section }}<li><i class="fas fa-bookmark" aria-hidden="true"></i>{{ . | upper }}</li>{{ end }}
               {{ if eq (getenv "HUGO_ENV") "DEV" }}
               <li>{{ .WordCount }} Words</li>
@@ -38,6 +41,7 @@
         </a>
       </article>
     </div>
+    {{ end }}
     {{ end }}
 
   </div>
