@@ -24,7 +24,6 @@
       {{ end }}
     </ul>
 
-    {{ partial "share.html" . }}
   </header>
 
   {{ if .Params.toc }}
@@ -36,8 +35,6 @@
   <div class="article-body">{{ .Content }}</div>
 
   <footer class="article-footer">
-
-    {{ partial "share.html" . }}
 
     {{ $params := .Params }}
     {{ range $key, $value := $.Site.Taxonomies }}
