@@ -1,4 +1,12 @@
 img {
-    pointer-events: none;
+  pointer-events: none;
 }
-.fab {font-size: large;}
+
+.fab {
+  font-size: large;
+}
+
+.flat-image {
+    box-shadow: none !important;
+    text-align: center;
+}
